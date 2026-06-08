@@ -2,12 +2,13 @@ const AWS = require("aws-sdk");
 AWS.config.update({ region: 'us-west-2' });
 
 const AmazonDaxClient = require("amazon-dax-client");
-const dynamodb = new AmazonDaxClient({
+
+const dax = new AmazonDaxClient({
     endpoints: ['dax-notes-app.hllvre.clustercfg.dax.usw2.cache.amazonaws.com:8111'],
     region: 'us-west-2'
 });
 
-// const dynamodb = new AWS.DynamoDB();
+const dynamodb = new AWS.DynamoDB();
 dynamodb.getItem({
     TableName: "td_notes_test",
     Key: {
